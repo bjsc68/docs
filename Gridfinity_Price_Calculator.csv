@@ -5,6 +5,7 @@ Filament Cost per 1kg	20
 Hourly Rate	2
 Base Fee per Bin	5
 Price Multiplier	1.6
+Spacer Flat Fee	2
 				
 BIN CALCULATOR
 Bin Dimensions (Grid Units)
@@ -25,11 +26,11 @@ Print Time (minutes)	=B16*0.0002665
 Print Time (hours)	=B19/60
 				
 Pricing
-Material Cost	=B18*$B$2
-Labor Cost	=B20*$B$3
-Subtotal	=B21+B22+$B$4
-Final Price (x1.6)	=B23*$B$5
-ROUNDED BIN PRICE	=ROUND(B24,0)
+Material Cost	=B21*$B$2
+Labor Cost	=B22*$B$3
+Subtotal	=B23+B24+$B$4
+Final Price (x1.6)	=B25*$B$5
+ROUNDED BIN PRICE	=ROUND(B26,0)
 				
 BASE CALCULATOR
 Base Dimensions (Grid Units)
@@ -37,39 +38,98 @@ Base Length (X)	2
 Base Width (Y)	3
 Base Height (mm)	5
 				
-Base Volume (mm³)	=(B31*42)*(B32*42)*B33
+Base Volume (mm³)	=(B33*42)*(B34*42)*B35
 				
 Base Cost Calculations
-Base Weight (g)	=B35*0.0001758
-Base Weight (kg)	=B36/1000
-Base Print Time (minutes)	=B35*0.0002665
-Base Print Time (hours)	=B38/60
+Base Weight (g)	=B37*0.0001758
+Base Weight (kg)	=B38/1000
+Base Print Time (minutes)	=B37*0.0002665
+Base Print Time (hours)	=B41/60
 				
 Base Pricing
-Base Material Cost	=B37*$B$2
-Base Labor Cost	=B39*$B$3
-Base Subtotal	=B40+B41+$B$4
-Base Final Price (x1.6)	=B42*$B$5
-ROUNDED BASE PRICE	=ROUND(B43,0)
+Base Material Cost	=B39*$B$2
+Base Labor Cost	=B42*$B$3
+Base Subtotal	=B43+B44+$B$4
+Base Final Price (x1.6)	=B45*$B$5
+ROUNDED BASE PRICE	=ROUND(B46,0)
 				
 TOTAL PRICING
-Bin Price	=B25
-Base Price	=B44
-TOTAL (Bin + Base)	=B46+B47
+Bin Price	=B27
+Base Price	=B47
+TOTAL (Bin + Base)	=B49+B50
 				
 				
 REFERENCE TABLE - COMMON SIZES
 Size	X	Y	Z	Weight (g)	Time (min)	Material	Labor	Subtotal	Bin Price	Base 2x3	Total
-1x1x1	1	1	1	=((B54*42)*(C54*42)*(D54*25))*0.0001758	=((B54*42)*(C54*42)*(D54*25))*0.0002665/60	=(E54/1000)*$B$2	=(F54/60)*$B$3	=G54+H54+$B$4	=ROUND((I54*$B$5),0)	=B44	=J54+K54
-1x2x1	1	2	1	=((B55*42)*(C55*42)*(D55*25))*0.0001758	=((B55*42)*(C55*42)*(D55*25))*0.0002665/60	=(E55/1000)*$B$2	=(F55/60)*$B$3	=G55+H55+$B$4	=ROUND((I55*$B$5),0)	=B44	=J55+K55
-2x2x1	2	2	1	=((B56*42)*(C56*42)*(D56*25))*0.0001758	=((B56*42)*(C56*42)*(D56*25))*0.0002665/60	=(E56/1000)*$B$2	=(F56/60)*$B$3	=G56+H56+$B$4	=ROUND((I56*$B$5),0)	=B44	=J56+K56
-2x3x1	2	3	1	=((B57*42)*(C57*42)*(D57*25))*0.0001758	=((B57*42)*(C57*42)*(D57*25))*0.0002665/60	=(E57/1000)*$B$2	=(F57/60)*$B$3	=G57+H57+$B$4	=ROUND((I57*$B$5),0)	=B44	=J57+K57
-2x4x1	2	4	1	=((B58*42)*(C58*42)*(D58*25))*0.0001758	=((B58*42)*(C58*42)*(D58*25))*0.0002665/60	=(E58/1000)*$B$2	=(F58/60)*$B$3	=G58+H58+$B$4	=ROUND((I58*$B$5),0)	=B44	=J58+K58
-2x2x2	2	2	2	=((B59*42)*(C59*42)*(D59*25))*0.0001758	=((B59*42)*(C59*42)*(D59*25))*0.0002665/60	=(E59/1000)*$B$2	=(F59/60)*$B$3	=G59+H59+$B$4	=ROUND((I59*$B$5),0)	=B44	=J59+K59
-3x3x1	3	3	1	=((B60*42)*(C60*42)*(D60*25))*0.0001758	=((B60*42)*(C60*42)*(D60*25))*0.0002665/60	=(E60/1000)*$B$2	=(F60/60)*$B$3	=G60+H60+$B$4	=ROUND((I60*$B$5),0)	=B44	=J60+K60
-3x4x1	3	4	1	=((B61*42)*(C61*42)*(D61*25))*0.0001758	=((B61*42)*(C61*42)*(D61*25))*0.0002665/60	=(E61/1000)*$B$2	=(F61/60)*$B$3	=G61+H61+$B$4	=ROUND((I61*$B$5),0)	=B44	=J61+K61
-4x4x1	4	4	1	=((B62*42)*(C62*42)*(D62*25))*0.0001758	=((B62*42)*(C62*42)*(D62*25))*0.0002665/60	=(E62/1000)*$B$2	=(F62/60)*$B$3	=G62+H62+$B$4	=ROUND((I62*$B$5),0)	=B44	=J62+K62
-4x5x1	4	5	1	=((B63*42)*(C63*42)*(D63*25))*0.0001758	=((B63*42)*(C63*42)*(D63*25))*0.0002665/60	=(E63/1000)*$B$2	=(F63/60)*$B$3	=G63+H63+$B$4	=ROUND((I63*$B$5),0)	=B44	=J63+K63
-4x6x1	4	6	1	=((B64*42)*(C64*42)*(D64*25))*0.0001758	=((B64*42)*(C64*42)*(D64*25))*0.0002665/60	=(E64/1000)*$B$2	=(F64/60)*$B$3	=G64+H64+$B$4	=ROUND((I64*$B$5),0)	=B44	=J64+K64
-5x5x1	5	5	1	=((B65*42)*(C65*42)*(D65*25))*0.0001758	=((B65*42)*(C65*42)*(D65*25))*0.0002665/60	=(E65/1000)*$B$2	=(F65/60)*$B$3	=G65+H65+$B$4	=ROUND((I65*$B$5),0)	=B44	=J65+K65
-6x6x1	6	6	1	=((B66*42)*(C66*42)*(D66*25))*0.0001758	=((B66*42)*(C66*42)*(D66*25))*0.0002665/60	=(E66/1000)*$B$2	=(F66/60)*$B$3	=G66+H66+$B$4	=ROUND((I66*$B$5),0)	=B44	=J66+K66
+1x1x1	1	1	1	=((B56*42)*(C56*42)*(D56*25))*0.0001758	=((B56*42)*(C56*42)*(D56*25))*0.0002665/60	=(E56/1000)*$B$2	=(F56/60)*$B$3	=G56+H56+$B$4	=ROUND((I56*$B$5),0)	=B47	=J56+K56
+1x2x1	1	2	1	=((B57*42)*(C57*42)*(D57*25))*0.0001758	=((B57*42)*(C57*42)*(D57*25))*0.0002665/60	=(E57/1000)*$B$2	=(F57/60)*$B$3	=G57+H57+$B$4	=ROUND((I57*$B$5),0)	=B47	=J57+K57
+2x2x1	2	2	1	=((B58*42)*(C58*42)*(D58*25))*0.0001758	=((B58*42)*(C58*42)*(D58*25))*0.0002665/60	=(E58/1000)*$B$2	=(F58/60)*$B$3	=G58+H58+$B$4	=ROUND((I58*$B$5),0)	=B47	=J58+K58
+2x3x1	2	3	1	=((B59*42)*(C59*42)*(D59*25))*0.0001758	=((B59*42)*(C59*42)*(D59*25))*0.0002665/60	=(E59/1000)*$B$2	=(F59/60)*$B$3	=G59+H59+$B$4	=ROUND((I59*$B$5),0)	=B47	=J59+K59
+2x4x1	2	4	1	=((B60*42)*(C60*42)*(D60*25))*0.0001758	=((B60*42)*(C60*42)*(D60*25))*0.0002665/60	=(E60/1000)*$B$2	=(F60/60)*$B$3	=G60+H60+$B$4	=ROUND((I60*$B$5),0)	=B47	=J60+K60
+2x2x2	2	2	2	=((B61*42)*(C61*42)*(D61*25))*0.0001758	=((B61*42)*(C61*42)*(D61*25))*0.0002665/60	=(E61/1000)*$B$2	=(F61/60)*$B$3	=G61+H61+$B$4	=ROUND((I61*$B$5),0)	=B47	=J61+K61
+3x3x1	3	3	1	=((B62*42)*(C62*42)*(D62*25))*0.0001758	=((B62*42)*(C62*42)*(D62*25))*0.0002665/60	=(E62/1000)*$B$2	=(F62/60)*$B$3	=G62+H62+$B$4	=ROUND((I62*$B$5),0)	=B47	=J62+K62
+3x4x1	3	4	1	=((B63*42)*(C63*42)*(D63*25))*0.0001758	=((B63*42)*(C63*42)*(D63*25))*0.0002665/60	=(E63/1000)*$B$2	=(F63/60)*$B$3	=G63+H63+$B$4	=ROUND((I63*$B$5),0)	=B47	=J63+K63
+4x4x1	4	4	1	=((B64*42)*(C64*42)*(D64*25))*0.0001758	=((B64*42)*(C64*42)*(D64*25))*0.0002665/60	=(E64/1000)*$B$2	=(F64/60)*$B$3	=G64+H64+$B$4	=ROUND((I64*$B$5),0)	=B47	=J64+K64
+4x5x1	4	5	1	=((B65*42)*(C65*42)*(D65*25))*0.0001758	=((B65*42)*(C65*42)*(D65*25))*0.0002665/60	=(E65/1000)*$B$2	=(F65/60)*$B$3	=G65+H65+$B$4	=ROUND((I65*$B$5),0)	=B47	=J65+K65
+4x6x1	4	6	1	=((B66*42)*(C66*42)*(D66*25))*0.0001758	=((B66*42)*(C66*42)*(D66*25))*0.0002665/60	=(E66/1000)*$B$2	=(F66/60)*$B$3	=G66+H66+$B$4	=ROUND((I66*$B$5),0)	=B47	=J66+K66
+5x5x1	5	5	1	=((B67*42)*(C67*42)*(D67*25))*0.0001758	=((B67*42)*(C67*42)*(D67*25))*0.0002665/60	=(E67/1000)*$B$2	=(F67/60)*$B$3	=G67+H67+$B$4	=ROUND((I67*$B$5),0)	=B47	=J67+K67
+6x6x1	6	6	1	=((B68*42)*(C68*42)*(D68*25))*0.0001758	=((B68*42)*(C68*42)*(D68*25))*0.0002665/60	=(E68/1000)*$B$2	=(F68/60)*$B$3	=G68+H68+$B$4	=ROUND((I68*$B$5),0)	=B47	=J68+K68
+				
+				
+DRAWER GRID CALCULATOR
+Available Bin Heights (mm)	18	25	32	40	47	54	60	68	75	80	89
+				
+Drawer Dimensions
+Drawer Width (inches)	10
+Drawer Depth (inches)	12
+Drawer Height (mm)	100
+				
+Calculated Dimensions
+Drawer Width (mm)	=B77*25.4
+Drawer Depth (mm)	=B78*25.4
+Usable Width (mm)	=B81-10
+Usable Depth (mm)	=B82-10
+Grid Units Wide (X)	=INT(B83/42)
+Grid Units Deep (Y)	=INT(B84/42)
+				
+Spacer Calculations
+Spacer Width (mm)	=B83-(B85*42)
+Spacer Length (mm)	=B86
+Number of Spacers Needed	=B86
+Spacer Cost	=$B$5
+				
+Height Stacking Analysis
+Max Height Available (mm)	=B79
+Bin Height Option 1 (mm)	25
+Bin Height Option 2 (mm)	40
+Bins of Height 1 that fit	=INT(B95/(B97))
+Bins of Height 2 that fit	=INT(B95/(B98))
+Total Bins (Option 1)	=B85*B86*B99
+Total Bins (Option 2)	=B85*B86*B100
+				
+LAYOUT OPTION 1
+Grid Size (X x Y)	=B85&" x "&B86
+Total Bins Needed	=B103
+Height Configuration	25mm only (all bins 25mm tall)
+Bin Cost Per Unit	=B27
+Total Bin Cost	=B103*B27
+Spacer Cost	=B91
+TOTAL DRAWER SETUP PRICE	=B106+B107
+				
+LAYOUT OPTION 2
+Grid Size (X x Y)	=B85&" x "&B86
+Total Bins Needed	=(B85*B86*INT(B95/40))
+Height Configuration	40mm only (all bins 40mm tall)
+Bin Cost Per Unit	=ROUND((40/25)*B27,0)
+Total Bin Cost	=B110*B112
+Spacer Cost	=B91
+TOTAL DRAWER SETUP PRICE	=B113+B114
+				
+LAYOUT OPTION 3
+Grid Size (X x Y)	=B85&" x "&B86
+Total Bins Needed	=(B85*B86*INT(B95/32))
+Height Configuration	32mm only (all bins 32mm tall)
+Bin Cost Per Unit	=ROUND((32/25)*B27,0)
+Total Bin Cost	=B117*B119
+Spacer Cost	=B91
+TOTAL DRAWER SETUP PRICE	=B120+B121
